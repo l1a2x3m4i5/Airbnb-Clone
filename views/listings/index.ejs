@@ -1,40 +1,42 @@
-<% layout('layouts/boilerplate') %>
+<% layout('layouts/boilerplate') %> <%= success %>
 
 <div class="container">
   <h3>All Listings</h3>
   
   <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-1">
-    <% for (let listing of allListings) { %>
-     <a href="/listings/<%= listing._id %>" class="listing-link">
-      <div class="col">
-        <div class="card" style="width: 20rem">
+  <% for (let listing of allListings) { %>
+    <div class="col mb-4">
+      <a href="/listings/<%= listing._id %>" class="listing-link text-decoration-none">
+        <div class="card h-100 listing-card">
+
           <% 
             const defaultImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4tyt2Ql2kOZgcwy1gVyExkQTR5nmBZhjCJw&s";
-            const imageUrl = listing.image && listing.image.url ? listing.image.url : defaultImage;
+            const imageUrl = listing.image?.url || defaultImage;
           %>
+
           <img 
             src="<%= imageUrl %>" 
-            class="card-img-top" 
+            class="card-img-top"
             alt="<%= listing.title %>"
-            onerror="this.onerror=null; this.src='<%= defaultImage %>';"
             style="height: 200px; object-fit: cover;"
           >
-          <div class="card-img-overlay"></div>
-         
+
           <div class="card-body">
             <h5 class="card-title"><%= listing.title %></h5>
             <p class="card-text">
-              <i class="bi bi-geo-alt-fill"></i> <%= listing.location %>, <%= listing.country %>
+              <i class="bi bi-geo-alt-fill"></i>
+              <%= listing.location %>, <%= listing.country %>
             </p>
             <p class="card-text">
               <strong>₹<%= listing.price.toLocaleString("en-IN") %></strong> / night
             </p>
           </div>
+
         </div>
-      </div>
       </a>
-    <% } %>
-  </div>
+    </div>
+  <% } %>
+</div>
 
   
 </div>

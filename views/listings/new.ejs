@@ -1,11 +1,11 @@
 <% layout('layouts/boilerplate') %>
 
-<div class="row">
+<div class="row mt-3">
   <div class="col-8 offset-2">
     <br><br>
 <h3>Create New Listing</h3>
 
-<form method="POST" action="/listings" class="needs-validation" novalidate>
+<form method="POST" action="/listings" class="needs-validation" novalidate enctype="multipart/form-data">
   <div class="mb-3">
     <label for="title" class="form-label">Title</label>
     <input id="title" name="listing[title]" placeholder="Add a catchy Title" type="text" class="form-control" required>
@@ -18,13 +18,12 @@
     <textarea id="description" name="listing[description]" placeholder="enter description" class="form-control"  rows="4" required></textarea>
     <div class="invalid-feedback">Please enter a short description</div>
   </div>
-   
-
-  <div class="mb-3">
-    <label for="image" class="form-label">Image URL</label>
-    <input id="image" name="listing[image][url]" placeholder="enter image URL" type="text" class="form-control">
-  </div>
   
+  <div class="mb-3">
+    <label for="image" class="form-label">Upload Image</label>
+    <input id="image" name="image" type="file" class="form-control">
+  </div>
+
   <div class="row">
     <div class="col-md-4">
       <div class="mb-3">
@@ -52,7 +51,7 @@
   </div>
  
   <button type="submit" class="btn btn-dark add-btn">Add</button>
-  <!-- <a href="/listings" class="btn btn-secondary ms-2">Back</a> -->
+  
   <br/><br>
 </form>
 </div>

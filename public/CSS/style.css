@@ -5,7 +5,7 @@ body {
   min-height: 100vh;
 }
 
-.container {
+.app-container {
     flex: 1;
 }
 
@@ -58,7 +58,7 @@ body {
     justify-content: center;
     align-items: space-evenly;
 }
-.card {
+.listing-card {
     border: none !important;
     margin-bottom: 2rem;
 }
@@ -67,12 +67,12 @@ body {
     width: 100% !important;
     object-fit: cover !important;
 }
-.card-body{
+.show-card .card-body{
     padding: 0 !important;
 
 }
 
-.card-text p{
+.card-text{
     font-weight: 400 !important;
 }
 
